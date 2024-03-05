@@ -8,6 +8,26 @@ class StockApplication extends StatefulWidget {
 }
 
 class _StockApplicationState extends State<StockApplication> {
+  
+  Widget _box(String title, double total) {
+    return Expanded(
+      child: ListTile(
+        leading: const Icon(
+          Icons.inventory_2_outlined,
+          size: 50.1,
+        ),
+        title: Text(title),
+        subtitle: Text(
+          total.toString(),
+          style: const TextStyle(
+            fontSize: 20.0,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -50,7 +70,7 @@ class _StockApplicationState extends State<StockApplication> {
             children: [
               Row(
                 children: [
-                const Expanded(
+                  const Expanded(
                     child: TextField(
                       decoration: InputDecoration(
                         suffixIcon: Icon(Icons.search),
@@ -67,6 +87,34 @@ class _StockApplicationState extends State<StockApplication> {
                   ),
                 ],
               ),
+              Row(
+                children: [
+                  _box('Stock', 20),
+                  _box('Out Stock', 13),
+                ],
+              ),
+              Column(
+                children: [
+                  ListTile(
+                    leading: Image.network(
+                      'https://hips.hearstapps.com/hmg-prod/images/best-sugar-substitute-1660364690.jpg',
+                      width: 100,
+                      height: 100,
+                    ),
+                    title: Text('Sugar'),
+                    subtitle: Text('21,000'),
+                  ),
+                  ListTile(
+                    leading: Image.network(
+                      'https://jclao.com/wp-content/uploads/2019/06/Lao-Brewery-Co-Ltd.png',
+                      width: 100,
+                      height: 100,
+                    ),
+                    title: Text('Beer Lao'),
+                    subtitle: Text('15,000'),
+                  )
+                ],
+              )
             ],
           )),
     );
