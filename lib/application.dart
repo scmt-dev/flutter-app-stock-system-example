@@ -17,6 +17,26 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  Widget _box(String title, double total) {
+    return Expanded(
+      child: ListTile(
+        leading: const Icon(
+          Icons.inventory_2_outlined,
+          size: 40.0,
+          color: Colors.pink,
+        ),
+        title: Text(title),
+        subtitle: Text(
+          '$total',
+          style: const TextStyle(
+            fontSize: 20.0,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,12 +60,29 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: ListView(
         children: [
-          TextField(),
-          IconButton(
-            icon: Icon(Icons.search),
-            onPressed: () {
-              print('search');
-            },
+          Row(
+            children: [
+              const Expanded(
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: 'Search',
+                    suffixIcon: Icon(Icons.search),
+                  ),
+                ),
+              ),
+              IconButton(
+                icon: Icon(Icons.qr_code_scanner_rounded),
+                onPressed: () {
+                  print('search');
+                },
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              _box('Stock', 10),
+              _box('Out Stock', 2),
+            ],
           ),
         ],
       ),
