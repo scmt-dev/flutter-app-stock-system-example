@@ -10,22 +10,7 @@ class StockApplication extends StatefulWidget {
 class _StockApplicationState extends State<StockApplication> {
   
   Widget _box(String title, double total) {
-    return Expanded(
-      child: ListTile(
-        leading: const Icon(
-          Icons.inventory_2_outlined,
-          size: 50.1,
-        ),
-        title: Text(title),
-        subtitle: Text(
-          total.toString(),
-          style: const TextStyle(
-            fontSize: 20.0,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
-    );
+    return ;
   }
 
   @override
