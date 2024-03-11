@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hello/widgets/card_item.dart';
 
 class StockApplication extends StatefulWidget {
   const StockApplication({super.key});
@@ -8,7 +9,6 @@ class StockApplication extends StatefulWidget {
 }
 
 class _StockApplicationState extends State<StockApplication> {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -68,10 +68,18 @@ class _StockApplicationState extends State<StockApplication> {
                   ),
                 ],
               ),
-              Row(
+              const Row(
                 children: [
-                  _box('Stock', 20),
-                  _box('Out Stock', 13),
+                   CardItem(
+                    title: 'Stock',
+                    total: 10,
+                    icon: Icon(Icons.inventory_2_outlined),
+                  ),
+                  CardItem(
+                    title: 'Out Stock',
+                    total: 11,
+                    icon: Icon(Icons.inventory_2_outlined),
+                  ),
                 ],
               ),
               Column(
