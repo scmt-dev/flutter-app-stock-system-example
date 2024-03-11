@@ -8,10 +8,6 @@ class StockApplication extends StatefulWidget {
 }
 
 class _StockApplicationState extends State<StockApplication> {
-  
-  Widget _box(String title, double total) {
-    return ;
-  }
 
   @override
   Widget build(BuildContext context) {
