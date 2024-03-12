@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hello/widgets/app_drawer.dart';
 import 'package:flutter_hello/widgets/card_item.dart';
+
+import 'widgets/app_bar.dart';
 
 class StockApplication extends StatefulWidget {
   const StockApplication({super.key});
@@ -19,93 +22,68 @@ class _StockApplicationState extends State<StockApplication> {
         ),
       ),
       home: Scaffold(
-          appBar: AppBar(
-            title: Text(
-              'Stock Application',
-              style: TextStyle(color: Colors.white),
+        drawer: WidgetAppDrawer(),
+        appBar: WidgetAppBar(),
+        body: ListView(
+          children: [
+            Row(
+              children: [
+                const Expanded(
+                  child: TextField(
+                    decoration: InputDecoration(
+                      suffixIcon: Icon(Icons.search),
+                      hintText: 'Search',
+                      filled: true,
+                    ),
+                  ),
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.qr_code_scanner,
+                  ),
+                ),
+              ],
             ),
-            centerTitle: true,
-            backgroundColor: Colors.indigo,
-            actions: [
-              IconButton(
-                icon: Icon(
-                  Icons.notifications_outlined,
-                  color: Colors.white,
+            const Row(
+              children: [
+                CardItem(
+                  title: 'Stock',
+                  total: 10,
+                  icon: Icon(Icons.inventory_2_outlined),
                 ),
-                onPressed: () {
-                  print(1 + 1);
-                },
-              ),
-              IconButton(
-                icon: Icon(
-                  Icons.account_circle_outlined,
-                  color: Colors.white,
+                CardItem(
+                  title: 'Out Stock',
+                  total: 11,
+                  icon: Icon(Icons.inventory_2_outlined),
                 ),
-                onPressed: () {
-                  print(1 + 1);
-                },
-              ),
-            ],
-          ),
-          body: ListView(
-            children: [
-              Row(
-                children: [
-                  const Expanded(
-                    child: TextField(
-                      decoration: InputDecoration(
-                        suffixIcon: Icon(Icons.search),
-                        hintText: 'Search',
-                        filled: true,
-                      ),
-                    ),
+              ],
+            ),
+            Column(
+              children: [
+                ListTile(
+                  leading: Image.network(
+                    'https://hips.hearstapps.com/hmg-prod/images/best-sugar-substitute-1660364690.jpg',
+                    width: 100,
+                    height: 100,
                   ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.qr_code_scanner,
-                    ),
+                  title: Text('Sugar'),
+                  subtitle: Text('21,000'),
+                ),
+                ListTile(
+                  leading: Image.network(
+                    'https://jclao.com/wp-content/uploads/2019/06/Lao-Brewery-Co-Ltd.png',
+                    width: 100,
+                    height: 100,
                   ),
-                ],
-              ),
-              const Row(
-                children: [
-                   CardItem(
-                    title: 'Stock',
-                    total: 10,
-                    icon: Icon(Icons.inventory_2_outlined),
-                  ),
-                  CardItem(
-                    title: 'Out Stock',
-                    total: 11,
-                    icon: Icon(Icons.inventory_2_outlined),
-                  ),
-                ],
-              ),
-              Column(
-                children: [
-                  ListTile(
-                    leading: Image.network(
-                      'https://hips.hearstapps.com/hmg-prod/images/best-sugar-substitute-1660364690.jpg',
-                      width: 100,
-                      height: 100,
-                    ),
-                    title: Text('Sugar'),
-                    subtitle: Text('21,000'),
-                  ),
-                  ListTile(
-                    leading: Image.network(
-                      'https://jclao.com/wp-content/uploads/2019/06/Lao-Brewery-Co-Ltd.png',
-                      width: 100,
-                      height: 100,
-                    ),
-                    title: Text('Beer Lao'),
-                    subtitle: Text('15,000'),
-                  )
-                ],
-              )
-            ],
-          )),
+                  title: Text('Beer Lao'),
+                  subtitle: Text('15,000'),
+                )
+              ],
+            )
+          ],
+        ),
+      ),
     );
   }
 }
