@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hello/widgets/app_drawer.dart';
 import 'package:flutter_hello/widgets/card_item.dart';
 
+import 'screens/screen.dart';
 import 'widgets/app_bar.dart';
 
 class StockApplication extends StatefulWidget {
@@ -84,6 +85,10 @@ class _StockApplicationState extends State<StockApplication> {
           ],
         ),
       ),
+      routes: {
+        '/signin': (context) => const SignInScreen(),
+        '/signup': (context) => const SignupScreen(),
+      },
     );
   }
 }

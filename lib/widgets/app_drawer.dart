@@ -18,6 +18,8 @@ class WidgetAppDrawer extends StatelessWidget {
             onTap: (){
               print(1+1);
               print('Sign in Tap');
+              Navigator.pop(context);
+              Navigator.pushNamed(context, '/signin');
             },
           ),
           ListTile(
@@ -25,6 +27,8 @@ class WidgetAppDrawer extends StatelessWidget {
             onTap: (){
               print(1+1);
               print('Sign Up Tap');
+              Navigator.pop(context);
+              Navigator.pushNamed(context, '/signup');
             },
           )
         ],
