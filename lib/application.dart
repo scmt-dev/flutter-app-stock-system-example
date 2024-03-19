@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hello/widgets/drawer_widget.dart';
 
 class StockApplication extends StatelessWidget {
   const StockApplication({super.key});
@@ -40,6 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: DrawerWidget(),
       appBar: AppBar(
         title: Text('Stock App'),
         centerTitle: true,
