@@ -11,11 +11,15 @@ class DrawerWidget extends StatelessWidget {
           const SizedBox(height: 20,),
           ListTile(
             title: const Text('Sign In'),
-            onTap: (){},
+            onTap: (){
+              Navigator.pushNamed(context, '/signin');
+            },
           ),
           ListTile(
             title: const Text('Sign Up'),
-            onTap: (){},
+            onTap: (){
+              Navigator.pushNamed(context, '/signup');
+            },
           )
         ],
       ),

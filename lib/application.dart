@@ -1,12 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hello/widgets/drawer_widget.dart';
 
+import 'screens/screens.dart';
+
+
 class StockApplication extends StatelessWidget {
   const StockApplication({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: 'Stock App', home: HomeScreen());
+    return MaterialApp(
+      title: 'Stock App', home: HomeScreen(),
+      routes: {
+        '/signin': (context) => const SignInScreen(),
+        '/signup': (context) => const SignUpScreen(),
+        '/setting': (context) => const SettingScreen(),
+        '/profile': (context) => const ProfileScreen(),
+        // .....
+      },
+    );
   }
 }
 
@@ -56,6 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: Icon(Icons.account_circle_outlined),
             onPressed: () {
               print(1 + 1);
+              Navigator.pushNamed(context, '/profile');
             },
           ),
         ],
