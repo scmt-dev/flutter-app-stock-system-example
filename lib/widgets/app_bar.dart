@@ -32,6 +32,7 @@ class WidgetAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
           onPressed: () {
             print(1 + 1);
+            Navigator.pushNamed(context, '/profile');
           },
         ),
       ],

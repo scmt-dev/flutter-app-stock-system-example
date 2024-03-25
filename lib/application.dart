@@ -88,6 +88,7 @@ class _StockApplicationState extends State<StockApplication> {
       routes: {
         '/signin': (context) => const SignInScreen(),
         '/signup': (context) => const SignupScreen(),
+        '/profile': (context) => const ProfileScreen(),
       },
     );
   }
